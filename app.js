@@ -1,6 +1,5 @@
 //declarando un array para almacenar los nombres
 let nombres=[];
-console.log(nombres);
 
 //agregando una funcion para agregar los nombres
 function agregarAmigo(){
@@ -14,19 +13,40 @@ function agregarAmigo(){
     else{
        nombres.push(nomAmigo);
        limpiarCaja();
+       actualizarLista();
+       
+       
     }
 }
-
-//recorrer el arreglo y crear el li
-function actualizarLista(){
-    let lista=document.getElementById('listaAmigos');
-}
-
-
-
 
 
 //limpiar el input
 function limpiarCaja(){
     document.getElementById('amigo').value='';  
+}
+
+//recorrer el arreglo y crear el li
+function actualizarLista(){
+    let lista=document.getElementById('listaAmigos');
+    lista.innerHTML = "";
+    for(i=0; i<nombres.length;i++){
+      lista.innerHTML+=`<li>${nombres[i]}</li>`;
+    }
+}
+
+// sortear los amigos
+function sortearAmigo() {
+    // 1. Validar que haya amigos disponibles
+    if (nombres.length == 0) {
+        alert('No hay amigos que sortear');
+    } else {
+        // 2. Generar un índice aleatorio
+        let indiceAleatorio = Math.floor(Math.random() * nombres.length);
+        
+        // 3. Obtener el nombre sorteado
+        let amigoSorteado = nombres[indiceAleatorio];
+        
+        // 4. Mostrar el resultado
+        document.getElementById('resultado').innerHTML = "Amigo secreto: " + amigoSorteado;
+    }
 }
