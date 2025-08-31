@@ -19,7 +19,6 @@ function agregarAmigo(){
     }
 }
 
-
 //limpiar el input
 function limpiarCaja(){
     document.getElementById('amigo').value='';  
@@ -29,7 +28,7 @@ function limpiarCaja(){
 function actualizarLista(){
     let lista=document.getElementById('listaAmigos');
     lista.innerHTML = "";
-    for(i=0; i<nombres.length;i++){
+    for(let i=0; i<nombres.length;i++){
       lista.innerHTML+=`<li>${nombres[i]}</li>`;
     }
 }
